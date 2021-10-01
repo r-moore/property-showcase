@@ -1,0 +1,9 @@
+*.local
+node_modules
+*.js
+!*.config.js
+.DS_Store
+bin
+dist
+dist-ssr
+build
