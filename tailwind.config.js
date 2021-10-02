@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit',
-  purge: ['.index.html', './src/**/*.{ts,tsx}'],
+  content: ['index.html', './src/**/*.{ts,tsx}'],
   minify: true,
   theme: {
     colors: {
