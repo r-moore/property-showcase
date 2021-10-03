@@ -6,7 +6,9 @@ export const LeadsBtn: FC = () => (
     <LeadsIcon className="flex-shrink-0 w-8 mr-1 text-white" />
     <div className="flex flex-col">
       <div className="truncate">Leads</div>
-      <div className="text-xs font-light truncate opacity-75">0 contacts</div>
+      <div className="font-light truncate opacity-75 md:text-xs">
+        0 contacts
+      </div>
     </div>
   </div>
 );

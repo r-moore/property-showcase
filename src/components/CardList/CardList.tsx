@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { motion } from 'framer-motion';
 
 export const CardList: FC = ({ children }) => (
   <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
@@ -14,9 +15,11 @@ interface ICard {
 }
 
 export const Card: FC<ICard> = ({ image, title, subtitle, buttonText }) => (
-  <div
+  <motion.div
     className="flex flex-col justify-end h-64 overflow-hidden bg-gray-300 bg-cover rounded-lg shadow-lg cursor-pointer select-none"
     style={{ backgroundImage: image ? `url('${image}')` : undefined }}
+    whileHover={{ scale: 1.01 }}
+    whileTap={{ scale: 0.99 }}
   >
     <footer className="flex items-stretch justify-between h-20 px-4 font-medium bg-white rounded-b-lg bg-opacity-20 backdrop-blur-md text-mirage-700">
       <div
@@ -35,5 +38,5 @@ export const Card: FC<ICard> = ({ image, title, subtitle, buttonText }) => (
         </div>
       )}
     </footer>
-  </div>
+  </motion.div>
 );
