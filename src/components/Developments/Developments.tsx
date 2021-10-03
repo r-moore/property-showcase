@@ -1,17 +1,9 @@
 import { FC } from 'react';
 import { CardList, Card } from 'components/CardList/CardList';
 import { motion } from 'framer-motion';
-import { variants, pageTransition } from 'animationVariants';
 
 export const Developments: FC = () => (
-  <motion.main
-    className="absolute w-full h-auto p-5 rounded-lg max-w-7xl bg-mirage-500"
-    variants={variants}
-    transition={pageTransition}
-    initial="initial"
-    animate="in"
-    exit="out"
-  >
+  <main className="absolute w-full h-auto p-5 rounded-lg max-w-7xl bg-mirage-500">
     <CardList>
       <motion.div
         className="flex flex-col justify-between p-4 mb-5 overflow-hidden rounded-lg shadow-lg cursor-pointer select-none text-mirage-700 h-36 bg-sand-300"
@@ -62,5 +54,5 @@ export const Developments: FC = () => (
         image="/photos/poolside.jpg"
       />
     </CardList>
-  </motion.main>
+  </main>
 );
