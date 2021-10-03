@@ -10,7 +10,7 @@ body {
   @apply h-screen;
   @apply text-gray-200 bg-mirage-500;
   @apply text-2xs sm:text-xs md:text-sm lg:text-base;
-  background-image: url('assets/page-bg.png');
+  background-image: url('/page-bg.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position-y: top;
