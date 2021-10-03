@@ -1,7 +1,7 @@
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import { Switch, Route, useLocation } from 'wouter';
-import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
-import { variants } from 'animationVariants';
+import { motion, AnimateSharedLayout } from 'framer-motion';
+import { useAtom } from 'jotai';
 
 import VSCLogo from 'assets/vsc.svg';
 import { HeaderBtn } from 'components/Header/HeaderBtn';
@@ -12,13 +12,15 @@ import { Region } from 'components/Region/Region';
 import { Developments } from 'components/Developments/Developments';
 import { Availability } from 'components/Availability/Availability';
 import { Leads } from 'components/Leads/Leads';
+import { regionAtom } from 'atoms';
 
 function App(): JSX.Element {
   const [location] = useLocation();
-  const [[page, direction], setPage] = useState([0, 0]);
+  const [[page], setPage] = useState([0, 0]);
+  const [region, setRegion] = useAtom(regionAtom);
 
   const tabs = [
-    { title: 'Region', value: 'Dubai', href: '/region' },
+    { title: 'Region', value: region, href: '/region' },
     {
       title: 'Developments',
       value: 'All Developments',
