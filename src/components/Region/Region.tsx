@@ -1,8 +1,13 @@
 import { FC } from 'react';
+import { motion } from 'framer-motion';
 import { CardList, Card } from 'components/CardList/CardList';
 
 export const Region: FC = () => (
-  <main className="w-full h-auto p-5 rounded-lg bg-mirage-500">
+  <motion.main
+    className="w-full h-auto p-5 md:rounded-lg bg-mirage-500"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+  >
     <h2 className="mb-3 text-xs font-light tracking-wide opacity-50">
       Choose a Sales Region
     </h2>
@@ -20,5 +25,5 @@ export const Region: FC = () => (
         image="/spain.jpg"
       />
     </CardList>
-  </main>
+  </motion.main>
 );

@@ -3,7 +3,11 @@ import { CardList, Card } from 'components/CardList/CardList';
 import { motion } from 'framer-motion';
 
 export const Developments: FC = () => (
-  <main className="w-full h-auto p-5 rounded-lg bg-mirage-500">
+  <motion.main
+    className="w-full h-auto p-5 md:rounded-lg bg-mirage-500"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+  >
     <CardList>
       <motion.div
         className="flex flex-col justify-between p-4 mb-5 overflow-hidden rounded-lg shadow-lg cursor-pointer select-none text-mirage-700 h-36 bg-sand-300"
@@ -54,5 +58,5 @@ export const Developments: FC = () => (
         image="/photos/poolside.jpg"
       />
     </CardList>
-  </main>
+  </motion.main>
 );

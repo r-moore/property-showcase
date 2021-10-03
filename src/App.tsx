@@ -1,5 +1,5 @@
 import { Suspense, useState } from 'react';
-// import { Switch, Route } from 'wouter';
+import { Switch, Route, useLocation } from 'wouter';
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import { variants } from 'animationVariants';
 
@@ -11,18 +11,20 @@ import { UserSettingsBtn } from 'components/Header/UserSettingsBtn';
 import { Region } from 'components/Region/Region';
 import { Developments } from 'components/Developments/Developments';
 import { Availability } from 'components/Availability/Availability';
+import { Leads } from 'components/Leads/Leads';
 
 function App(): JSX.Element {
+  const [location] = useLocation();
   const [[page, direction], setPage] = useState([0, 0]);
 
   const tabs = [
-    { title: 'Region', value: 'Dubai', body: <Region /> },
+    { title: 'Region', value: 'Dubai', href: '/region' },
     {
       title: 'Developments',
       value: 'All Developments',
-      body: <Developments />,
+      href: '/developments',
     },
-    { title: 'Availability', value: 'All Properties', body: <Availability /> },
+    { title: 'Availability', value: 'All Properties', href: '/availability' },
   ];
 
   return (
@@ -40,18 +42,18 @@ function App(): JSX.Element {
             id="header-section-center"
             className="flex flex-row items-center justify-center h-20 overflow-hidden rounded-lg bg-mirage-600"
           >
-            {tabs.map(({ title, value }, i) => {
-              const isActive = i === page;
+            {tabs.map(({ title, value, href }, i) => {
+              const isActive = href === location;
               return (
                 <div
                   key={i}
                   onClick={() => setPage([i, i - page])}
-                  className="relative flex items-center cursor-pointer"
+                  className="relative flex items-stretch px-2 cursor-pointer"
                 >
-                  <HeaderBtn title={title} value={value} isActive={isActive} />
+                  <HeaderBtn title={title} value={value} href={href} />
                   {isActive && (
                     <motion.div
-                      className="absolute inset-0 z-0 -my-2 border-b-8 border-white bg-mirage-700"
+                      className="absolute inset-0 z-0 -my-2 bg-mirage-700"
                       layoutId="menuItemBG"
                     />
                   )}
@@ -70,28 +72,13 @@ function App(): JSX.Element {
       </header>
 
       <div className="flex items-start justify-center md:pt-5 md:px-5">
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.section
-            key={page}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: 'spring', stiffness: 300, damping: 30, duration: 2 },
-            }}
-            className="w-full max-w-7xl"
-          >
-            <Suspense fallback={null}>{tabs[page].body}</Suspense>
-          </motion.section>
-          {/* <Switch>
-            <Route path="/region" component={Region} />
-            <Route path="/developments" component={Developments} />
-            <Route path="/availability" component={Availability} />
-            <Route component={Region} />
-          </Switch> */}
-        </AnimatePresence>
+        <Switch>
+          <Route path="/region" component={Region} />
+          <Route path="/developments" component={Developments} />
+          <Route path="/availability" component={Availability} />
+          <Route path="/leads" component={Leads} />
+          <Route component={Region} />
+        </Switch>
       </div>
     </AnimateSharedLayout>
   );
