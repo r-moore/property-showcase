@@ -5,7 +5,7 @@ import { variants, pageTransition } from 'animationVariants';
 
 export const Region: FC = () => (
   <motion.main
-    className="absolute w-full h-full p-5 rounded-lg max-w-7xl bg-mirage-500"
+    className="absolute w-full h-auto p-5 rounded-lg max-w-7xl bg-mirage-500"
     variants={variants}
     transition={pageTransition}
     initial="initial"
