@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import VSCLogo from 'assets/vsc.svg';
 import { RegionBtn } from './RegionBtn';
-import { DevelopmentBtn } from './DevelopmentBtn';
-import { PropertyBtn } from './PropertyBtn';
+import { DevelopmentsBtn } from './DevelopmentsBtn';
+import { AvailabilityBtn } from './AvailabilityBtn';
 import { LeadsBtn } from './LeadsBtn';
 import { UserSettingsBtn } from './UserSettingsBtn';
 
@@ -21,8 +21,8 @@ export const Header: FC = () => (
         className="flex flex-row items-center justify-center h-20 px-2 rounded-lg shadow-innner bg-mirage-600"
       >
         <RegionBtn />
-        <DevelopmentBtn />
-        <PropertyBtn />
+        <DevelopmentsBtn />
+        <AvailabilityBtn />
       </div>
       <div id="header-section-right" className="flex justify-end space-x-2">
         <img src={VSCLogo} className="my-auto ml-2 h-14 w-14 md:hidden" />

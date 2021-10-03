@@ -1,18 +1,23 @@
+import { Router, Switch, Route } from 'wouter';
+
 import { Header } from 'components/Header/Header';
-import { Route } from 'wouter';
+import { Region } from 'components/Region/Region';
 import { Developments } from 'components/Developments/Developments';
-import { Regions } from 'components/Regions/Regions';
+import { Availability } from 'components/Availability/Availability';
 
 function App(): JSX.Element {
   return (
-    <>
+    <Router>
       <Header />
       <div className="flex items-start justify-center pt-2 md:pt-5 md:px-5">
-        <Route path="/regions" component={Regions} />
-        <Route path="/developments" component={Developments} />
-        <Route component={Developments} />
+        <Switch>
+          <Route path="/region" component={Region} />
+          <Route path="/developments" component={Developments} />
+          <Route path="/availability" component={Availability} />
+          <Route component={Developments} />
+        </Switch>
       </div>
-    </>
+    </Router>
   );
 }
 
