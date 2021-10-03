@@ -14,8 +14,7 @@
     "framer-motion": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "wouter": "latest",
-    "clsx": "latest"
+    "wouter": "latest"
   },
   "devDependencies": {
     "@types/react": "latest",
