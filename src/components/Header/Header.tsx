@@ -8,7 +8,7 @@ import { LeadsBtn } from './LeadsBtn';
 import { UserSettingsBtn } from './UserSettingsBtn';
 
 export const Header: FC = () => (
-  <header className="flex items-center justify-center h-auto px-2 overflow-hidden md:px-6 md:h-24 bg-mirage-500">
+  <header className="flex items-center justify-center h-auto overflow-hidden md:px-6 md:h-24 bg-mirage-500">
     <div className="flex flex-col-reverse items-stretch justify-between w-full space-y-2 md:space-x-2 md:space-y-0 md:flex-row max-w-7xl">
       <div
         id="header-section-left"

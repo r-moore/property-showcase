@@ -6,7 +6,7 @@ function App(): JSX.Element {
   return (
     <>
       <Header />
-      <div className="flex items-start justify-center pt-2 mx-2 md:pt-5 md:px-5">
+      <div className="flex items-start justify-center pt-2 md:pt-5 md:px-5">
         <Regions />
       </div>
     </>
