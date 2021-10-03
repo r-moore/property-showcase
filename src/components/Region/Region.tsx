@@ -16,7 +16,18 @@ export const Region: FC = () => (
       Choose a Sales Region
     </h2>
     <CardList>
-      <Card title="Dubai" subtitle="UAE" buttonText="SELECT" image="/UAE.jpg" />
+      <Card
+        title="Dubai"
+        subtitle="Middle East"
+        buttonText="SELECT"
+        image="/UAE.jpg"
+      />
+      <Card
+        title="Spain"
+        subtitle="Europe"
+        buttonText="SELECT"
+        image="/spain.jpg"
+      />
     </CardList>
   </motion.main>
 );

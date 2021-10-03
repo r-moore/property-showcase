@@ -6,6 +6,9 @@ module.exports = {
   minify: true,
   theme: {
     extend: {
+      translate: {
+        200: '200%',
+      },
       fontSize: {
         '2xs': '.65rem',
       },
