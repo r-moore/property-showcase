@@ -1,18 +1,14 @@
-import logo from 'assets/logo.svg';
-import { ReactComponent as Logo } from 'assets/logo.svg';
-import { MyComponent } from 'components/Component';
+import { Header } from 'components/Header/Header';
 
 function App(): JSX.Element {
   return (
     <>
-      <header className="flex items-center space-x-2 bg-blue-900">
-        <Logo className="w-16 h-16" />
-        <img src={logo} className="w-16 h-16" />
-        <p>Hello Vite + React!</p>
-      </header>
-      <main className="p-5">
-        <MyComponent />
-      </main>
+      <Header />
+      <div className="flex items-start justify-center px-5 pt-5">
+        <main className="w-full h-full p-5 rounded-lg max-w-7xl bg-mirage-600">
+          Hello
+        </main>
+      </div>
     </>
   );
 }
