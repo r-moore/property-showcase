@@ -13,6 +13,8 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
       gray: colors.coolGray,
       mirage: {
         DEFAULT: '#1C2536',
