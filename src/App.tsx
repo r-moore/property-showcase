@@ -7,7 +7,8 @@ function App(): JSX.Element {
     <>
       <Header />
       <div className="flex items-start justify-center pt-2 md:pt-5 md:px-5">
-        <Regions />
+        {/* <Regions /> */}
+        <Developments />
       </div>
     </>
   );

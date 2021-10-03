@@ -1,14 +1,18 @@
 import { FC } from 'react';
-import { ReactComponent as DropdownIcon } from 'assets/triangle.svg';
+import { ReactComponent as Circle } from 'assets/circle.svg';
 
-export const DevelopmentBtn: FC = () => (
-  <div className="flex flex-col justify-center h-12 px-2 overflow-hidden select-none md:h-full hover:cursor-pointer sm:px-4">
+export const DevelopmentBtn: FC<{ isActive?: boolean }> = ({
+  isActive = false,
+}) => (
+  <div className="flex flex-col justify-center h-12 px-2 overflow-hidden select-none md:h-full hover:cursor-pointer sm:px-4 group">
     <div className="font-light tracking-wide opacity-50 text-2xs sm:text-xs">
       <span className="truncate">Development</span>
     </div>
     <div className="flex items-center text-xs font-medium sm:text-sm md:text-base">
-      <span className="truncate">All Developments</span>
-      <DropdownIcon className="w-auto h-2 py-px ml-2 -mb-px -rotate-90" />
+      <span className="truncate border-b-2 border-transparent opacity-75 group-hover:border-white group-hover:opacity-100">
+        All Developments
+      </span>
+      {isActive && <Circle className="w-auto h-2 py-px ml-2" />}
     </div>
   </div>
 );

@@ -8,7 +8,7 @@ import { LeadsBtn } from './LeadsBtn';
 import { UserSettingsBtn } from './UserSettingsBtn';
 
 export const Header: FC = () => (
-  <header className="flex items-center justify-center h-auto overflow-hidden md:px-6 md:h-24 bg-mirage-500">
+  <header className="flex items-center justify-center h-auto overflow-hidden shadow-xl md:px-6 md:h-24 bg-mirage-500">
     <div className="flex flex-col-reverse items-stretch justify-between w-full space-y-2 md:space-x-2 md:space-y-0 md:flex-row max-w-7xl">
       <div
         id="header-section-left"
@@ -18,7 +18,7 @@ export const Header: FC = () => (
       </div>
       <div
         id="header-section-center"
-        className="flex flex-row items-center justify-center h-20 px-2 rounded-lg bg-mirage-600"
+        className="flex flex-row items-center justify-center h-20 px-2 rounded-lg shadow-innner bg-mirage-600"
       >
         <RegionBtn />
         <DevelopmentBtn />

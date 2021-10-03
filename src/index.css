@@ -10,10 +10,10 @@ body {
   @apply h-screen;
   @apply text-gray-200 bg-mirage-500;
   @apply text-2xs sm:text-xs md:text-sm lg:text-base;
-  background-image: url('/page-bg.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-y: top;
+
+  background-image: linear-gradient(to bottom, transparent, #1c2536 40%),
+    url('/topography.svg'),
+    linear-gradient(to bottom, #1c2536, transparent 700px);
 }
 
 div,
