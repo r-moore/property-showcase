@@ -17,12 +17,14 @@ export const Region: FC = () => (
         subtitle="Middle East"
         buttonText="SELECT"
         image="/UAE.jpg"
+        href="/developments"
       />
       <Card
         title="Spain"
         subtitle="Europe"
         buttonText="SELECT"
         image="/spain.jpg"
+        href="/developments"
       />
     </CardList>
   </motion.main>
