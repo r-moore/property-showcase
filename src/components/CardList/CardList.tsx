@@ -51,7 +51,7 @@ export const Card: FC<ICard> = ({
               layoutId={`card-${id}-footer-right`}
               className="flex items-end pb-4"
             >
-              <div className="px-2 py-1 text-xs font-bold tracking-wide uppercase bg-white rounded-lg shadow-sm">
+              <div className="px-2 py-1 text-xs font-bold tracking-wide uppercase bg-white rounded-full shadow-sm">
                 {buttonText}
               </div>
             </motion.div>

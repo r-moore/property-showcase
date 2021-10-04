@@ -3,10 +3,13 @@ import { CardList, Card } from 'components/CardList/CardList';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import Modal from 'components/Modal';
 import { useHistory, RouteComponentProps } from 'react-router-dom';
+import { useAtom } from 'jotai';
+import { developmentAtom } from 'atoms';
 
 export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
   match,
 }) => {
+  const [development, setDevelopment] = useAtom(developmentAtom);
   const history = useHistory();
 
   return (
@@ -17,23 +20,27 @@ export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
     >
       <CardList>
         <motion.div
-          className="flex flex-col justify-between p-4 mb-5 overflow-hidden bg-right-bottom bg-no-repeat rounded-lg shadow-lg cursor-pointer select-none text-mirage-700 h-36 bg-sand-300"
+          className="flex flex-col justify-between p-4 mb-5 overflow-hidden bg-right-bottom bg-no-repeat rounded-lg shadow-lg cursor-pointer select-none h-36 bg-sand-300 "
           style={{
             backgroundImage: `url('/buildings.svg')`,
             backgroundSize: 'auto 80%',
           }}
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
+          onClick={() => {
+            setDevelopment(null);
+            history.push('/search');
+          }}
         >
           <div>
-            <h2 className="text-lg font-semibold leading-6">
+            <h2 className="text-lg font-semibold leading-6 text-sand-900">
               All Developments
             </h2>
-            <h4 className="text-xs font-light tracking-wide opacity-50">
+            <h4 className="text-xs font-light tracking-wide text-sand-800">
               Region-wide avilability
             </h4>
           </div>
-          <div className="self-end w-auto px-2 py-1 text-xs font-bold tracking-wide uppercase bg-white rounded-lg shadow-sm">
+          <div className="self-end w-auto px-2 py-1 text-xs font-bold tracking-wide uppercase bg-white rounded-full shadow-sm text-mirage-700">
             Select
           </div>
         </motion.div>
@@ -53,7 +60,11 @@ export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
             subtitle="by NAKHEEL"
             buttonText="DETAILS"
             image="/developments/bedroom.jpg"
-            onClick={() => history.push('/developments/palm-view')}
+            onClick={() => {
+              // match.params?.id && setDevelopment(match.params.id);
+              setDevelopment('Palm View');
+              history.push('/search');
+            }}
           />
           <Card
             id="the-address"

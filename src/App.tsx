@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import { useAtom } from 'jotai';
 
@@ -13,22 +13,25 @@ import { Developments } from 'components/Developments/Developments';
 import { Availability } from 'components/Availability/Availability';
 import { Leads } from 'components/Leads/Leads';
 import { regionAtom } from 'atoms';
+import { developmentAtom } from 'atoms';
 
 function App(): JSX.Element {
   const [[page], setPage] = useState([0, 0]);
   const [region, setRegion] = useAtom(regionAtom);
+  const [development, setDevelopment] = useAtom(developmentAtom);
+  const location = useLocation();
 
   const tabs = [
     { title: 'Region', value: region, href: '/region' },
     {
       title: 'Developments',
-      value: 'All Developments',
+      value: development ? development : 'All Developments',
       href: '/developments',
     },
     {
-      title: 'Properties',
-      value: 'Available Units',
-      href: '/availability',
+      title: 'Availability',
+      value: 'Property Search',
+      href: '/search',
     },
   ];
 
@@ -48,7 +51,7 @@ function App(): JSX.Element {
             className="flex flex-row items-center justify-center h-20 overflow-hidden rounded-lg shadow-inner bg-mirage-600"
           >
             {tabs.map(({ title, value, href }, i) => {
-              const isActive = href === location.pathname;
+              const isActive = location.pathname === href;
               return (
                 <div
                   key={i}
@@ -76,13 +79,13 @@ function App(): JSX.Element {
         </div>
       </header>
 
-      <div className="flex items-start justify-center md:pt-5 md:px-5">
+      <div className="mx-auto max-w-7xl md:pt-5">
         <Switch>
           <Route path="/region" component={Region} />
           <Route path="/developments/:id?" component={Developments} />
-          <Route path="/availability" component={Availability} />
-          <Route path="/leads" component={Leads} />
-          <Route component={Region} />
+          <Route path="/search/:id?" component={Availability} />
+          <Route path="/leads/:id?" component={Leads} />
+          <Redirect path="/" exact to="/region" />
         </Switch>
       </div>
     </AnimateSharedLayout>
