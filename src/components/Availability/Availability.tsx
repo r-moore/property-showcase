@@ -1,41 +1,15 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 
+import { ReactComponent as DropdownIcon } from 'assets/triangle.svg';
 import { ReactComponent as BedIcon } from 'assets/unit/bedrooms.svg';
 import { ReactComponent as BathIcon } from 'assets/unit/bathrooms.svg';
 import { ReactComponent as CarIcon } from 'assets/unit/parking.svg';
 import { ReactComponent as SizeIcon } from 'assets/unit/size.svg';
+import { ReactComponent as ReloadIcon } from 'assets/reload.svg';
+import { ReactComponent as ClearIcon } from 'assets/remove.svg';
 
-const units = [
-  {
-    id: '37',
-    bedrooms: 2,
-    bathrooms: 1,
-    parking: 1,
-    price: 3000000,
-    image: '/units/lobby.jpg',
-  },
-  {
-    id: '252',
-    bedrooms: 3,
-    bathrooms: 2,
-    parking: 2,
-    size: 220,
-    view: 'Marina View',
-    price: 3000000,
-    image: '/units/bedroom.jpg',
-  },
-  {
-    id: '253',
-    bedrooms: 6,
-    bathrooms: 3,
-    parking: 3,
-    price: 3000000,
-    view: 'Beach View',
-    image: '/units/poolside.jpg',
-    size: 320,
-  },
-];
+import units from './units';
 
 export const Availability: FC = () => (
   <motion.main
@@ -43,11 +17,70 @@ export const Availability: FC = () => (
     initial={{ opacity: 0, y: 100 }}
     animate={{ opacity: 1, y: 0 }}
   >
-    <h2 className="mb-3 text-xs font-light tracking-wide opacity-50">
-      Avalable Units
-    </h2>
+    <div className="flex flex-col p-3 mb-4 space-y-1 overflow-hidden rounded-lg bg-sand-300 text-mirage-600">
+      <div className="flex items-center space-x-5">
+        <div>
+          <label className="font-light tracking-wide uppercase opacity-75 text-2xs">
+            Min Bedrooms
+          </label>
+          <div className="flex items-center justify-between p-3 bg-white rounded-lg">
+            1<DropdownIcon className="w-3 h-3 ml-2 text-mirage-400" />
+          </div>
+        </div>
+        <div>
+          <label className="font-light tracking-wide uppercase opacity-75 text-2xs">
+            Min Price
+          </label>
+          <div className="flex items-center justify-between p-3 bg-white rounded-lg">
+            100,000
+            <DropdownIcon className="w-3 h-3 ml-2 text-mirage-400" />
+          </div>
+        </div>
+        <div>
+          <label className="font-light tracking-wide uppercase opacity-75 text-2xs">
+            Max Price
+          </label>
+          <div className="flex items-center justify-between p-3 bg-white rounded-lg">
+            800,000
+            <DropdownIcon className="w-3 h-3 ml-2 text-mirage-400" />
+          </div>
+        </div>
+        <div>
+          <label className="font-light tracking-wide uppercase opacity-75 text-2xs">
+            Views
+          </label>
+          <div className="flex items-center p-3 space-x-1 bg-white rounded-lg">
+            <span className="px-2 py-1 text-sm font-medium bg-teal-400 rounded-full bg-opacity-40">
+              Marina
+            </span>
+            <span className="px-2 py-1 text-sm font-medium bg-teal-400 rounded-full bg-opacity-40">
+              Beach
+            </span>
+            <ClearIcon className="w-5 h-5 rotate-45 text-mirage-100" />
+          </div>
+        </div>
+        <div>
+          <label className="font-light tracking-wide uppercase opacity-75 text-2xs">
+            Areas
+          </label>
+          <div className="flex items-center p-3 space-x-1 bg-white rounded-lg">
+            <span className="px-2 py-1 text-sm font-medium rounded-full bg-sand-700 bg-opacity-40">
+              Downtown
+            </span>
+            <ClearIcon className="w-5 h-5 rotate-45 text-mirage-100" />
+          </div>
+        </div>
+        <div className="flex-grow" />
+        <div>
+          <label className="font-light tracking-wide uppercase opacity-75 text-2xs">
+            Reload
+          </label>
+          <ReloadIcon className="self-end w-12 h-12" />
+        </div>
+      </div>
+    </div>
 
-    <div className="flex flex-col space-y-1 overflow-hidden rounded-lg">
+    <div className="flex flex-col space-y-2 overflow-hidden rounded-lg">
       {units.map((info) => (
         <Unit {...info} />
       ))}
