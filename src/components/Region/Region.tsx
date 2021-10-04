@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { CardList, Card } from 'components/CardList/CardList';
 import { useAtom } from 'jotai';
 import { regionAtom } from 'atoms';
-import { useLocation } from 'wouter';
+import { useHistory } from 'react-router-dom';
 
 export const Region: FC = () => {
-  const [location, setLocation] = useLocation();
+  const history = useHistory();
   const [region, setRegion] = useAtom(regionAtom);
 
   return (
@@ -27,7 +27,7 @@ export const Region: FC = () => {
           image="/regions/dubai.jpg"
           onClick={() => {
             setRegion('Dubai');
-            setLocation('/developments');
+            history.push('/developments');
           }}
         />
         <Card
@@ -38,7 +38,7 @@ export const Region: FC = () => {
           image="/regions/spain.jpg"
           onClick={() => {
             setRegion('Spain');
-            setLocation('/developments');
+            history.push('/developments');
           }}
         />
       </CardList>

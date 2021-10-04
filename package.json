@@ -14,13 +14,14 @@
     "framer-motion": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "wouter": "latest",
+    "react-router-dom": "latest",
     "jotai": "latest",
     "clsx": "latest"
   },
   "devDependencies": {
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-router-dom": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "@vitejs/plugin-react": "latest",

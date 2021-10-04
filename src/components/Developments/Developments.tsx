@@ -2,11 +2,13 @@ import { FC } from 'react';
 import { CardList, Card } from 'components/CardList/CardList';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import Modal from 'components/Modal';
-import { useRoute, useLocation } from 'wouter';
+import { useLocation, useHistory, RouteComponentProps } from 'react-router-dom';
 
-export const Developments: FC = ({}) => {
-  const [match, params] = useRoute('/developments/:id');
-  const [location, setLocation] = useLocation();
+export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
+  match,
+}) => {
+  const location = useLocation();
+  const history = useHistory();
 
   return (
     <motion.main
@@ -68,9 +70,9 @@ export const Developments: FC = ({}) => {
             subtitle="by TEBYAN"
             buttonText="DETAILS"
             image="/photos/poolside.jpg"
-            onClick={() => setLocation('/developments/1')}
+            onClick={() => history.push('/developments/1')}
           />
-          {params?.id && (
+          {match.params?.id && (
             <AnimatePresence>
               <Modal>
                 <Card
