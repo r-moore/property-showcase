@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAtom } from 'jotai';
 import { developmentAtom, regionAtom } from 'atoms';
@@ -15,6 +16,7 @@ import { ReactComponent as ClearIcon } from 'assets/remove.svg';
 import units from './units';
 
 export const Availability: FC = () => {
+  const history = useHistory();
   const [region] = useAtom(regionAtom);
   const [development] = useAtom(developmentAtom);
 
@@ -31,7 +33,18 @@ export const Availability: FC = () => {
             development
           ) : (
             <>
-              All Developments<span className="opacity-50">{region}</span>
+              <span
+                className="cursor-pointer hover:text-sand-900"
+                onClick={() => history.push('/developments')}
+              >
+                All Developments
+              </span>
+              <span
+                className="opacity-50 cursor-pointer hover:opacity-75"
+                onClick={() => history.push('/region')}
+              >
+                {region}
+              </span>
             </>
           )}
         </h2>
