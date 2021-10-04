@@ -25,10 +25,15 @@ export const Availability: FC = () => {
       animate={{ opacity: 1, y: 0 }}
     >
       <div className="flex flex-col p-3 mb-4 space-y-1 overflow-hidden rounded-lg bg-sand-300 text-mirage-600">
-        <h2 className="flex items-center space-x-4 text-2xl font-semibold text-sand-800">
-          <SearchIcon className="mr-2 -mb-1 w-7 h-7" />
-          {development ? development : 'All Developments'}
-          <span className="opacity-50">{region}</span>
+        <h2 className="flex items-end space-x-2 text-2xl font-semibold text-sand-800">
+          <SearchIcon className="mr-2 w-7 h-7" />
+          {development ? (
+            development
+          ) : (
+            <>
+              All Developments<span className="opacity-50">{region}</span>
+            </>
+          )}
         </h2>
         <div className="flex items-center space-x-5">
           <div>
