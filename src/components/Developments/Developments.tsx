@@ -62,8 +62,14 @@ export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
             image="/developments/bedroom.jpg"
             onClick={() => {
               // match.params?.id && setDevelopment(match.params.id);
-              setDevelopment('Palm View');
-              history.push('/search');
+              if (
+                confirm(
+                  'Brochures, Images, Floorplans, Tours etc. for Palm View'
+                )
+              ) {
+                setDevelopment('Palm View');
+                history.push('/search');
+              }
             }}
           />
           <Card
@@ -72,7 +78,18 @@ export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
             subtitle="by EMAAR"
             buttonText="DETAILS"
             image="/developments/tower-dusk.jpg"
-            onClick={() => history.push('/developments/the-address')}
+            // onClick={() => history.push('/developments/the-address')}
+            onClick={() => {
+              // match.params?.id && setDevelopment(match.params.id);
+              if (
+                confirm(
+                  'Brochures, Images, Floorplans, Tours etc. for The Address'
+                )
+              ) {
+                setDevelopment('The Address');
+                history.push('/search');
+              }
+            }}
           />
           <Card
             id="sparkle-towers"
@@ -80,7 +97,18 @@ export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
             subtitle="by TEBYAN"
             buttonText="DETAILS"
             image="/developments/poolside.jpg"
-            onClick={() => history.push('/developments/sparkle-towers')}
+            // onClick={() => history.push('/developments/sparkle-towers')}
+            onClick={() => {
+              // match.params?.id && setDevelopment(match.params.id);
+              if (
+                confirm(
+                  'Brochures, Images, Floorplans, Tours etc. for Sparkle Towers'
+                )
+              ) {
+                setDevelopment('Sparkle Towers');
+                history.push('/search');
+              }
+            }}
           />
           {match.params?.id && (
             <Modal>
