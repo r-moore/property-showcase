@@ -15,7 +15,8 @@
     "react": "latest",
     "react-dom": "latest",
     "wouter": "latest",
-    "jotai": "latest"
+    "jotai": "latest",
+    "clsx": "latest"
   },
   "devDependencies": {
     "@types/react": "latest",
