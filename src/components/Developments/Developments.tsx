@@ -2,12 +2,11 @@ import { FC } from 'react';
 import { CardList, Card } from 'components/CardList/CardList';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import Modal from 'components/Modal';
-import { useLocation, useHistory, RouteComponentProps } from 'react-router-dom';
+import { useHistory, RouteComponentProps } from 'react-router-dom';
 
 export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
   match,
 }) => {
-  const location = useLocation();
   const history = useHistory();
 
   return (
@@ -18,12 +17,10 @@ export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
     >
       <CardList>
         <motion.div
-          className="flex flex-col justify-between p-4 mb-5 overflow-hidden rounded-lg shadow-lg cursor-pointer select-none text-mirage-700 h-36 bg-sand-300"
+          className="flex flex-col justify-between p-4 mb-5 overflow-hidden bg-right-bottom bg-no-repeat rounded-lg shadow-lg cursor-pointer select-none text-mirage-700 h-36 bg-sand-300"
           style={{
             backgroundImage: `url('/buildings.svg')`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'bottom right',
-            backgroundSize: '70%',
+            backgroundSize: 'auto 80%',
           }}
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
@@ -55,35 +52,60 @@ export const Developments: FC<RouteComponentProps<{ id?: string }>> = ({
             title="Palm View"
             subtitle="by NAKHEEL"
             buttonText="DETAILS"
-            image="/photos/bedroom.jpg"
+            image="/developments/bedroom.jpg"
+            onClick={() => history.push('/developments/palm-view')}
           />
           <Card
             id="the-address"
             title="The Address"
             subtitle="by EMAAR"
             buttonText="DETAILS"
-            image="/photos/tower-dusk.jpg"
+            image="/developments/tower-dusk.jpg"
+            onClick={() => history.push('/developments/the-address')}
           />
           <Card
             id="sparkle-towers"
             title="Sparkle Towers"
             subtitle="by TEBYAN"
             buttonText="DETAILS"
-            image="/photos/poolside.jpg"
-            onClick={() => history.push('/developments/1')}
+            image="/developments/poolside.jpg"
+            onClick={() => history.push('/developments/sparkle-towers')}
           />
           {match.params?.id && (
-            <AnimatePresence>
-              <Modal>
-                <Card
-                  id="sparkle-towers"
-                  title="Sparkle Towers"
-                  subtitle="by TEBYAN"
-                  buttonText="DETAILS"
-                  image="/photos/poolside.jpg"
-                />
-              </Modal>
-            </AnimatePresence>
+            <Modal>
+              <AnimatePresence>
+                <motion.div
+                  className="flex flex-col justify-end h-64 max-w-5xl min-h-full overflow-hidden bg-gray-300 bg-cover rounded-lg shadow-lg cursor-pointer select-none"
+                  style={{
+                    backgroundImage: `url('/photos/poolside.jpg')`,
+                  }}
+                  onClick={() => history.push('/developments')}
+                  layoutId={`card-${match.params?.id}`}
+                >
+                  <motion.footer
+                    className="flex items-stretch justify-between h-20 px-4 font-medium bg-white border-t rounded-b-lg bg-opacity-20 backdrop-blur-md text-mirage-700"
+                    layoutId={`card-footer-${match.params?.id}`}
+                  >
+                    <motion.div
+                      layoutId={`card-${match.params?.id}-footer-left`}
+                      className="flex flex-col items-start justify-center"
+                    >
+                      <h2 className="text-xl font-semibold leading-6">Test</h2>
+                      <h4 className="text-xs font-light opacity-75">Test</h4>
+                    </motion.div>
+
+                    <motion.div
+                      layoutId={`card-${match.params?.id}-footer-right`}
+                      className="flex items-end pb-4"
+                    >
+                      <div className="px-2 py-1 text-xs font-bold tracking-wide uppercase bg-white rounded-lg shadow-sm">
+                        Select
+                      </div>
+                    </motion.div>
+                  </motion.footer>
+                </motion.div>
+              </AnimatePresence>
+            </Modal>
           )}
         </AnimateSharedLayout>
       </CardList>

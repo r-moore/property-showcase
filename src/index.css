@@ -11,7 +11,7 @@ body {
   @apply text-gray-200 bg-mirage-500;
   @apply text-2xs sm:text-xs md:text-sm lg:text-base;
 
-  background-image: linear-gradient(to bottom, transparent, #1c2536 40%),
+  background-image: linear-gradient(to bottom, transparent, #1c2536 300px),
     url('/topography.svg'),
     linear-gradient(to bottom, #1c2536, transparent 700px);
 }
