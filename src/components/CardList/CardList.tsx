@@ -35,7 +35,7 @@ export const Card: FC<ICard> = ({
         layoutId={`card-${id}`}
       >
         <motion.footer
-          className="flex items-stretch justify-between h-20 px-4 font-medium bg-white border-t rounded-b-lg bg-opacity-20 backdrop-blur-md text-mirage-700"
+          className="flex items-stretch justify-between h-20 px-4 font-medium bg-white rounded-b-lg bg-opacity-20 backdrop-blur-md text-mirage-700"
           layoutId={`card-footer-${id}`}
         >
           <motion.div
