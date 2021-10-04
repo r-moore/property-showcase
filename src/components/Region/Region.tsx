@@ -2,12 +2,13 @@ import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { CardList, Card } from 'components/CardList/CardList';
 import { useAtom } from 'jotai';
-import { regionAtom } from 'atoms';
+import { regionAtom, developmentAtom } from 'atoms';
 import { useHistory } from 'react-router-dom';
 
 export const Region: FC = () => {
   const history = useHistory();
   const [region, setRegion] = useAtom(regionAtom);
+  const [development, setDevelopment] = useAtom(developmentAtom);
 
   return (
     <motion.main
@@ -27,6 +28,7 @@ export const Region: FC = () => {
           image="/regions/dubai.jpg"
           onClick={() => {
             setRegion('Dubai');
+            setDevelopment(null);
             history.push('/developments');
           }}
         />
@@ -38,6 +40,7 @@ export const Region: FC = () => {
           image="/regions/spain.jpg"
           onClick={() => {
             setRegion('Spain');
+            setDevelopment(null);
             history.push('/developments');
           }}
         />
