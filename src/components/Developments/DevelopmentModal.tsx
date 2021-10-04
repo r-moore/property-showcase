@@ -1,12 +1,6 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 
-export const CardList: FC = ({ children }) => (
-  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-    {children}
-  </div>
-);
-
 interface ICard {
   id: string;
   title?: string;
@@ -16,7 +10,7 @@ interface ICard {
   onClick?: () => any;
 }
 
-export const Card: FC<ICard> = ({
+export const DevelopmentModal: FC<ICard> = ({
   id,
   image,
   title,
@@ -26,16 +20,15 @@ export const Card: FC<ICard> = ({
 }) => {
   return (
     <motion.div
-      className="flex flex-col justify-end h-64 overflow-hidden bg-gray-300 bg-cover rounded-lg shadow-lg cursor-pointer select-none"
+      className="flex flex-col justify-end overflow-hidden bg-gray-300 bg-cover rounded-lg shadow-lg cursor-pointer select-none h-96"
       style={{ backgroundImage: image ? `url('${image}')` : undefined }}
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
       onClick={onClick}
-      layoutId={`card-${id}`}
     >
       <motion.footer
         className="flex items-stretch justify-between h-20 px-4 font-medium bg-white rounded-b-lg bg-opacity-20 backdrop-blur-md text-mirage-700"
-        layoutId={`card-footer-${id}`}
+        layoutId={`card-${id}`}
       >
         <motion.div
           layoutId={`card-${id}-footer-left`}

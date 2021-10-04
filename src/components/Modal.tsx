@@ -25,8 +25,8 @@ const Modal: FC = ({ children }) => {
   }, []);
 
   return createPortal(
-    <div className="fixed top-0 bottom-0 right-0 bg-white shadow-lg w-96">
-      {children}
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-60">
+      <div className="shadow-lg">{children}</div>
     </div>,
     elRef.current
   );

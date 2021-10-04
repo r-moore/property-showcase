@@ -76,6 +76,7 @@ function App(): JSX.Element {
       <div className="flex items-start justify-center md:pt-5 md:px-5">
         <Switch>
           <Route path="/region" component={Region} />
+          <Route path="/developments/:id" component={Developments} />
           <Route path="/developments" component={Developments} />
           <Route path="/availability" component={Availability} />
           <Route path="/leads" component={Leads} />

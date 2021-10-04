@@ -20,20 +20,22 @@ export const Region: FC = () => {
       </h2>
       <CardList>
         <Card
+          id="dubai"
           title="Dubai"
           subtitle="Middle East"
           buttonText="SELECT"
-          image="/UAE.jpg"
+          image="/regions/dubai.jpg"
           onClick={() => {
             setRegion('Dubai');
             setLocation('/developments');
           }}
         />
         <Card
+          id="spain"
           title="Spain"
           subtitle="Europe"
           buttonText="SELECT"
-          image="/spain.jpg"
+          image="/regions/spain.jpg"
           onClick={() => {
             setRegion('Spain');
             setLocation('/developments');
